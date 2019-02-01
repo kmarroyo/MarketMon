@@ -1,22 +1,34 @@
-import socket
-def get_ip():
-    s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-    try:
-        # doesn't even have to be reachable
-        s.connect(('10.255.255.255', 1))
-        IP = s.getsockname()[0]
-    except:
-        IP = '127.0.0.1'
-    finally:
-        s.close()
-    return IP
+#test code. do not run
 
-print (get_ip())
-UDP_PORT_NO = 60066
-UDP_IP_ADDRESS = get_ip()
-serverSock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-serverSock.bind((UDP_IP_ADDRESS, UDP_PORT_NO))
-serverSock.close()
+
+##import socket
+##def get_ip():
+##    s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+##    try:
+##        # doesn't even have to be reachable
+##        s.connect(('10.255.255.255', 1))
+##        IP = s.getsockname()[0]
+##    except:
+##        IP = '127.0.0.1'
+##    finally:
+##        s.close()
+##    return IP
+##s = get_ip()
+##
+##s = "255.255.255.255"
+##list =  (s.split('.'))
+##lStr = list[0] + '.' + list[1]
+##print (lStr)
+##rStr = list[2] + '.' + list[3]
+##print (rStr)
+##if (len(rStr)) < 7:
+##    rStr = '.' + rStr
+##print (rStr)
+##print (len(rStr))  
+    
+    
+
+
 
 
 
