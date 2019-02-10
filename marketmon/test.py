@@ -1,3 +1,20 @@
+
+t = [
+[30, "test"],
+[40, "test2"]
+]
+t = t + ([[50, "test4"]])
+print (t)
+for n in t:
+    if n[1] == "test":
+        print("fornd test 3")
+
+    
+
+
+
+
+
 #test code. do not run
 
 
