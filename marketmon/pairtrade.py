@@ -8,8 +8,8 @@ import tkinter.font  #gui
 import threading
 import socket
 from pygame import mixer
-mixer.init()
-alert=mixer.Sound('/home/pi/Downloads/Bell.wav')
+#mixer.init()
+#alert=mixer.Sound('/home/pi/Downloads/Bell.wav')
 
 TIC1 = 0
 TIC2 = 1
@@ -313,9 +313,10 @@ win = tki.Tk()
 
 
 win.title("Pair Trader")
-myFont = tkinter.font.Font(family = 'Piboto Condensed', size = 24, weight = "bold")
+#myFont = tkinter.font.Font(family = 'Piboto Condensed', size = 24, weight = "bold")
+myFont = tkinter.font.Font(family = 'Liberation Mono', size = 24, weight = "bold")
 
-labelLeftTop = tki.Label(win,justify="left", width="25", height = "10",bg = "#001F3F",fg = "OliveDrab1")
+labelLeftTop = tki.Label(win,justify="right", width="25", height = "10",bg = "#001F3F",fg = "OliveDrab1")
 labelLeftTop.pack()
 labelRightTop = tki.Label(win,justify="right", width="25", height = "10",bg = "#001F3F",fg = "OliveDrab1")
 
@@ -541,12 +542,12 @@ def TimerPopped():
                     
                     leftStr = leftStr + " " + pa[TIC1] + " " + pa[TIC2] + " " + sThre + " " + sDelta + "\n"
                 else:
-                    if count < 40:
+                    if count < 39:
                         rightStr = rightStr + " " + pa[TIC1] + " " + pa[TIC2] + " " + sThre + " " + sDelta + "\n"
                     
                 count += 1
                
-            rightStr = rightStr + "OVER RATIO: " + str(countOver)  + " / " + str(len(pairArr))       
+            rightStr = "OVER RATIO: " + str(countOver)  + " / " + str(len(pairArr)) + "\n" + rightStr      
 #            if foundAnOverThres:  
 #                labelLeftTop["fg"] = "OrangeRed2"
 #                alert.play()
