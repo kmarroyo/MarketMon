@@ -460,8 +460,11 @@ def TimerPopped():
                 try:
                     url_1 = requests.get(webSite,timeout=7)
                 except:
-                    keepGoing = False
-                    break
+                    try:
+                        url_1 = requests.get(webSite,timeout=7)
+                    except:
+                        keepGoing = False
+                        break
 #            else:
 #                print("Cashed")
          
@@ -495,8 +498,11 @@ def TimerPopped():
                     try:
                         url = requests.get(webSite,timeout=7)
                     except:
-                        keepGoing = False
-                        break
+                        try:
+                            url = requests.get(webSite,timeout=7)
+                        except:
+                            keepGoing = False
+                            break
                     
                 if (keepGoing and (len(url.text) > 20)  and (url.text[0]== '{')): # 20 is arbitrary.  Here to catch invalid symbol
                     if not foundInCache:
