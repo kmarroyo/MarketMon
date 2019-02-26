@@ -445,13 +445,17 @@ def getMovAveData():
                     break
         else:
             keepGoing = False
+            print(pa[TIC1], pa[TIC2])
+            break
         if (keepGoing and (len(url_2.text) > 20)  and (url_2.text[0]== '[')): # 20 is arbitrary.  Here to catch invalid symbol
             text2 = json.loads(url_2.text)
 
-            if ((len(text) == len(text2)) and (len(text)>= 50)):
+            if ((len(text2) >= 50) and (len(text)>= 50)):
                 sumCloses = 0.0
+                idx2 = len(text2) - 49
                 for idx in range(len(text) - 49,len(text)):
-                    sumCloses += text[idx]["close"] / text2[idx]["close"]
+                    sumCloses += text[idx]["close"] / text2[idx2]["close"]
+                    idx2 += 1
                 pa[SUMCLS] = sumCloses
 
 
@@ -464,11 +468,17 @@ def getMovAveData():
 #                for tx in text[(len(text) - 49):]:
 #                    sumCloses += tx["close"]
 #                pa[SUMCLS]= sumCloses   
-               
+                if (len(text2) != len(text)):
+                    print(pa[TIC1], pa[TIC2], len(text), len(text2))
+                    
             else:
                 keepGoing = False
+                print(pa[TIC1], pa[TIC2], len(text), len(text2))
+                break
         else:
             keepGoing = False
+            print(pa[TIC1], pa[TIC2])
+            break
     return keepGoing
 
 
@@ -496,9 +506,8 @@ def TimerPopped():
     if not firstTimeThrough:
         keepGoing = True
         if not doneGettingMovingAve:
-            print("Calling GetMA")
+          
             keepGoing = getMovAveData()
-            print("Returned from GetMA")
             doneGettingMovingAve = keepGoing
             
         if keepGoing:
