@@ -550,6 +550,7 @@ def TimerPopped():
                     
                 else:
                     keepGoing = False
+                    break
                 if (keepGoing):
                     foundInCache = False
                     for c in cachedTics:
@@ -586,6 +587,7 @@ def TimerPopped():
                                      
                     else:
                         keepGoing = False
+                        break
                     
     #            print (pa[TIC1], pa[OPN1], pa[CLS1], pa[TIC2], pa[OPN2], pa[CLS2])
 
