@@ -8,8 +8,12 @@ import tkinter.font  #gui
 import threading
 import socket
 from pygame import mixer
+import platform
 mixer.init()
-alert=mixer.Sound('/home/pi/Downloads/Bell.wav')
+if platform.system() == "Windows":
+    alert=mixer.Sound('/Users/Keith/Documents/Bell.wav')
+else:
+    alert=mixer.Sound('/home/pi/Downloads/Bell.wav')
 
 TIC1 = 0
 TIC2 = 1
