@@ -546,7 +546,7 @@ def TimerPopped():
                     text = json.loads(url_1.text)
                     pa[CLS1] = text['iexRealtimePrice']
                     if (not (isinstance(pa[CLS1], int) or isinstance(pa[CLS1], float))) or pa[CLS1] == 0:
-                        pa[CLS1] = text['open']
+                        pa[CLS1] = text['close']
                     
                 else:
                     keepGoing = False
@@ -577,7 +577,7 @@ def TimerPopped():
                         text = json.loads(url.text)
                         pa[CLS2] = text['iexRealtimePrice']
                         if (not (isinstance(pa[CLS2], int) or isinstance(pa[CLS2], float))) or pa[CLS2] == 0:
-                            pa[CLS2] = text['open']
+                            pa[CLS2] = text['close']
                         curRatio = pa[CLS1]/pa[CLS2]
                         movingAvg = (curRatio + pa[SUMCLS]) / 50
                         if curRatio > movingAvg:
