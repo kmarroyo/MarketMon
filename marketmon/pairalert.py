@@ -255,11 +255,11 @@ def TimerPopped():
         for pa in pairArr:
             if pa[SHARES1] < 0:
             
-                gain = ((-(pa[SHARES1])) * pa[PRICE1]) - ((-(pa[SHARES1])) * pa[CLS1])
-                + (pa[SHARES2] * pa[CLS2]) - (pa[SHARES2] * pa[CLS2])
+                gain = ((-(pa[SHARES1])) * pa[PRICE1]) - ((-(pa[SHARES1])) * pa[CLS1]) \
+                + (pa[SHARES2] * pa[CLS2]) - (pa[SHARES2] * pa[PRICE2])
             else:
-                gain = ((-(pa[SHARES2])) * pa[PRICE2]) - ((-(pa[SHARES2])) * pa[CLS2])
-                + (pa[SHARES1] * pa[CLS1]) - (pa[SHARES1] * pa[CLS1])
+                gain = ((-(pa[SHARES2])) * pa[PRICE2]) - ((-(pa[SHARES2])) * pa[CLS2]) \
+                + (pa[SHARES1] * pa[CLS1]) - (pa[SHARES1] * pa[PRICE1])
 
             if gain > pa[THRE]:
                 soundAlarm = True
